@@ -132,6 +132,14 @@ WHERE NUMHI>3 AND TEMPLE.NUMDE=TDEPTO.NUMDE
 &nbsp;
 
 15.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Obtener la media de los salarios para todos aquellos empleados que trabajen en el departamento de finanzas.
+```sql
+SELECT AVG(SALAR)
+FROM TEMPLE, TDEPTO
+WHERE TEMPLE.NUMDE=TDEPTO.NUMDE AND NOMDE LIKE '%FINANZAS%'
+```
+
+  
+&nbsp;
 
 16.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Calcular el nombre de empleado/s que trabajen en el departamento de organización cuya comisión sea nula.
 
