@@ -48,7 +48,8 @@ ORDER BY NOMDE, PRESU
 |DIRECCION COMERCIAL|
 |DIRECCION GENERAL|
 |PROCESO DE DATOS|
-|SECTOR SERVICIOS|
+|SECTOR SERVICIOS|  
+
 &nbsp;
 
 6.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Obtener salario y nombre de los empleados sin hijos, por orden decreciente de salario y a la vez por orden alfabético de nombre.
@@ -87,7 +88,8 @@ ORDER BY NOMDE
 |NOMDE|
 |---|
 |ORGANIZACION|
-|SECTOR INDUSTRIAL|
+|SECTOR INDUSTRIAL|  
+
 &nbsp;
 
 8.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Realizar la join entre las tablas temple y Tdepto.
