@@ -1378,3 +1378,67 @@ WHERE SALAR =(SELECT MIN(SALAR)
  
   
 &nbsp;
+
+
+22.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;CALCULA EL SALARIO MÁXIMO DEL DEPARTAMENTO DEL DEPARTAMENTO EN EL QUE HAYA MÁS EMPLEADOS CON HIJOS DESCARTANDO A LOS DIRECTORES  
+```SQL
+SELECT TEMPLE.NUMDE, COUNT(*),(MAX(SALAR)) 
+FROM TEMPLE, TDEPTO 
+WHERE TEMPLE.NUMDE=TDEPTO.NUMDE AND NUMHI>0 AND DIREC<>NUMEM GROUP BY TEMPLE.NUMDE HAVING COUNT(*)=(SELECT MAX(COUNT(*)) 
+                                                                                                    FROM TEMPLE,TDEPTO 
+                                                                                                    WHERE TEMPLE.NUMDE=TDEPTO.NUMDE AND NUMHI >0 AND DIREC<>NUMEM 
+                                                                                                    GROUP BY TEMPLE.NUMDE)
+```
+|NUMDE|COUNT(*)|(MAX(SALAR))|
+|---|---|---|
+|111|5|2800|
+  
+
+&nbsp;  
+  
+
+23.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EL NOMBRE DEL DEPARTAMENTO CON EL MENOR SALARIO MÁXIMO  
+```SQL
+SELECT NOMDE
+FROM TEMPLE, TDEPTO
+WHERE TEMPLE.NUMDE=TDEPTO.NUMDE
+GROUP BY NOMDE
+HAVING MAX(SALAR)<=ALL(SELECT MAX(SALAR)
+                        FROM TEMPLE
+                        GROUP BY NUMDE)
+```  
+|NOMDE|
+|---|
+|DIRECCION COMERCIAL|
+
+&nbsp;  
+
+
+24.&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;EL NOMBRE DEL DEPARTAMENTO UBICADO EN EL CENTRO CON MÁS EMPLEADOS SIN COMISIÓN
+```SQL
+SELECT NOMDE
+FROM TDEPTO
+WHERE TDEPTO.NUMCE=(SELECT NUMCE
+                    FROM TEMPLE, TDEPTO
+                    WHERE TEMPLE.NUMDE=TDEPTO.NUMDE AND COMIS IS NULL
+                    GROUP BY NUMCE
+                    HAVING COUNT(*)=(SELECT MAX(COUNT(*)) 
+                                     FROM TEMPLE, TDEPTO 
+                                     WHERE TEMPLE.NUMDE=TDEPTO.NUMDE AND COMIS IS NULL 
+                                     GROUP BY NUMCE))
+```
+|NOMDE|
+|---|
+|DIRECCION GENERAL|
+|ORGANIZACION|
+|PERSONAL|
+|PROCESO DE DATOS|
+|FINANZAS|
+
+  
+
+&nbsp;  
+  
+
+
+###### Andrés de la Hoz Camiroaga© - Gestión de la Ciberseguridad - UFV
