@@ -31,7 +31,6 @@ if __name__=='__main__':
                         texto+=f'{x}|\n'
                     else:
                         texto+=f'{x}|'
-
                 for x in heading_blocks:
                     if heading_blocks.index(x)==0:
                         texto+=f'|---|'
