@@ -1,6 +1,6 @@
 # Andrés de la Hoz Camiroaga
 ### Dossier: Fundamentos de Bases de Datos
-###### Ana Lazcano de Rojas
+###### Prof. Ana Lazcano de Rojas
 ##### Universidad Francisco de Vitoria  
 ###### Las consultas están integradas en el documento como cuadros de código. Al pasar el ratón por encima de cada uno, se puede copiar el código que encuadra haciendo click sobre el icono que aparecerá en la esquina superior izquierda. El output de las consultas aparece en formato de tabla debajo de cada cuadro de código.
 ---  
